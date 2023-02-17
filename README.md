@@ -1,7 +1,9 @@
 
 python manage.py migrate
 python manage.py makemigrations
+
 Create Super User/Admin: python manage.py createsuperuser
+
 Run: python manage.py runserver (IP:port_address)
 
 

@@ -137,7 +137,7 @@ def CovertedToDB_list(request):
         context = {'venues': venues}
         return render(request, 'filter.html', context)
     else:
-        context = {'venues': venues}
+        context = {'venues': "No result"}
         return render(request, 'filter.html', context)
 
 @login_required(login_url='login')
@@ -191,8 +191,12 @@ def csvconverter(request):
                             Polygon=fields[46],lat=fields[47],lon=fields[48]                               
                         )]
                         
+                        # if CovertedToDB.objects.filter(id=id).exists():
+                        #     pass
+                        # else:
                         CovertedToDB.objects.bulk_create(objs)
-
+                        
+                
 
                 obj.activated=True
                 obj.save()
