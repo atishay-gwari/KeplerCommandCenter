@@ -1,0 +1,167 @@
+{% extends './common/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+    <form method="GET">
+        <div class="form">
+            <div class="row-md-4" style="display:flex">
+                <div class="form-group">
+                    <input type="date" class="form-control" id="dateInput" placeholder="Date" name="filterdate"
+                        value="{% if request.session.filterdate %}{{request.session.filterdate}}{% else %}{{request.GET.filterdate}}{% endif %}" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="circleInput" placeholder="Circle" name="circle"
+                        value="{{ request.GET.circle }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="cityInput" placeholder="City" name="city"
+                        value="{{ request.GET.city }}" >
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="componentInput" placeholder="Component" name="component"
+                        value="{{ request.GET.component }}" >
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="searchbutton" class="btn btn-outline-primary" style="margin-left: 5%;"></input>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="generatebutton" class="btn btn-outline-warning" value="Generate" style="margin-left: 7%;"></input>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="deletebutton" class="btn btn-outline-danger" value="Delete DB" style="margin-left: 8%;"></input>
+                </div>
+                <div class="form-group">
+                    <input type="submit" name="resetbutton" class="btn btn-primary" value="Reset Filters" style="margin-left: 8%;"></input>
+                </div>
+            </div>
+    </form>
+    <br>
+    <table class="table"  style=" border: 1px solid black;border-collapse: collapse;line-height:13px">
+        <thead>
+            <tr>
+                <th>Circle</th>
+                <th>City</th>
+                <th>Component</th>
+                <th>Date</th>
+                <th>Hour</th>
+                <th>Total_Customers</th>
+                <th>Anomal</th>
+                <th>Ratio_Date</th>
+                <th>Ratio_Voice</th>
+                <th>Ratio_HSI</th>
+                <th>cluster_issue</th>
+                <th>Data_Volume</th>
+                <th>Data_Volume_Formula</th>
+                <th>Data_Volume_mean</th>
+                <th>Data_Volume_std</th>
+                <th>Voice_Affected_Users</th>
+                <th>Voice_Affected_Users_Formula</th>
+                <th>Voice_Affected_Users_mean</th>
+                <th>Voice_Affected_Users_std</th>
+                <th>HSI_Affected_Users</th>
+                <th>HSI_Affected Users_Formula</th>
+                <th>HSI_Affected_Users_mean</th>
+                <th>HSI_Affected_Users_std</th>
+                <th>Data_Change</th>
+                <th>Voice_Change</th>
+                <th>HSI_Change</th>
+                <th>num_grids</th>
+                <th>num_cells</th>
+                <th>num_sectors</th>
+                <th>Indoor_Freqency_850</th>
+                <th>Indoor_Freqency_1800</th>
+                <th>Indoor_Freqency_2300</th>
+                <th>prb_20</th>
+                <th>prb_70_90</th>
+                <th>prb_90</th>
+                <th>prb_20_per</th>
+                <th>prb_70_90_per</th>
+                <th>prb_90_per</th>
+                <th>area</th>
+                <th>month</th>
+                <th>week</th>
+                <th>total_users_data_complaints </th>
+                <th>total_users_vvm_complaints</th>
+                <th>total_users_covergae_complaints</th>
+                <th>total_users_other_complaints</th>
+                <th>totla_upc_generated</th>
+                <th>Polygon</th>
+                <th>lat</th>
+                <th>lon</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in venues %}
+            <tr>
+                <td>{{i.Circle}}</td>
+                <td>{{i.City}}</td>
+                <td>{{i.Component}}</td>
+                <td>{{i.Date}}</td>
+                <td>{{i.Hour}}</td>
+                <td>{{i.Total_Customers}}</td>
+                <td>{{i.Anomal}}</td>
+                <td>{{i.Ratio_Date}}</td>
+                <td>{{i.Ratio_Voice}}</td>
+                <td>{{i.Ratio_HSI}}</td>
+                <td>{{i.cluster_issue}}</td>
+                <td>{{i.Data_Volume}}</td>
+                <td>{{i.Data_Volume_Formula}}</td>
+                <td>{{i.Data_Volume_mean}}</td>
+                <td>{{i.Data_Volume_std}}</td>
+                <td>{{i.Voice_Affected_Users}}</td>
+                <td>{{i.Voice_Affected_Users_Formula}}</td>
+                <td>{{i.Voice_Affected_Users_mean}}</td>
+                <td>{{i.Voice_Affected_Users_std}}</td>
+                <td>{{i.HSI_Affected_Users}}</td>
+                <td>{{i.HSI_Affected_Users_Formula}}</td>
+                <td>{{i.HSI_Affected_Users_mean}}</td>
+                <td>{{i.HSI_Affected_Users_std}}</td>
+                <td>{{i.Data_Change}}</td>
+                <td>{{i.Voice_Change}}</td>
+                <td>{{i.HSI_Change}}</td>
+                <td>{{i.num_grids}}</th>
+                <td>{{i.num_cells}}</td>
+                <td>{{i.num_sectors}}</td>
+                <td>{{i.Indoor_Freqency_850}}</td>
+                <td>{{i.Indoor_Freqency_1800}}</td>
+                <td>{{i.Indoor_Freqency_2300}}</td>
+                <td>{{i.prb_20}}</td>
+                <td>{{i.prb_70_90}}</td>
+                <td>{{i.prb_90}}</td>
+                <td>{{i.prb_20_per}}</td>
+                <td>{{i.prb_70_90_per}}</td>
+                <td>{{i.prb_90_per}}</td>
+                <td>{{i.area}}</td>
+                <td>{{i.month}}</td>
+                <td>{{i.week}}</td>
+                <td>{{i.total_users_data_complaints}}</td>
+                <td>{{i.total_users_vvm_complaints}}</td>
+                <td>{{i.total_users_covergae_complaints}}</td>
+                <td>{{i.total_users_other_complaints}}</td>
+                <td>{{i.totla_upc_generated}}</td>
+                <td>{{i.Polygon}}</td>
+                <td>{{i.lat}}</td>
+                <td>{{i.lon}}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7">No results found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if venues.has_previous %}
+    <a href="?page=1">&laquo First</a>
+    <a href="?page={{ venues.previous_page_number }}">Previous</a>
+    {% endif %}
+    Page {{venues.number}} of {{ venues.paginator.num_pages}}
+    {% if venues.has_next %}
+    <a href="?page={{ venues.next_page_number }}">Next</a>
+    <a href="?page={{ venues.paginator.num_pages }}">Last &raquo</a>
+    {% endif %}
+</div>
+
+
+{% endblock %}

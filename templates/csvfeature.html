@@ -1,0 +1,16 @@
+{% extends './common/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div style="margin-left: 40%;">
+    <form action="{% url 'csv' %}" method="POST" style="max-width: 400px; " enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>Upload the files and view them in the table view.</p>
+        {{form.file|as_crispy_field}}
+        {{form.date|as_crispy_field}}
+        <br>
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </form>
+</div>
+
+{% endblock %}

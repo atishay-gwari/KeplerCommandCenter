@@ -1,0 +1,64 @@
+{% extends './common/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <h3 class="text-dark mb-4">Team</h3>
+    <div class="card shadow">
+        <div class="card-header py-3">
+            <p class="text-primary m-0 fw-bold">Files Info</p>
+        </div>
+        <div class="card-body">
+            
+            <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                <table class="table my-0" id="dataTable">
+                    <thead>
+                        <tr>
+                            <th>Public Files</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in public %}
+                        <tr> 
+                            <td>
+                                <br>
+                                <a href="/media/{{i.file}}" target="_blank" class="rounded-circle me-4" width="40" height="40">{{i.file}}</a>
+                                <br><h7><b>File Info :</b></h7>
+                                <br><span>Created:{{i.created_at}}</span> 
+                                <br><span>Updated:{{i.updated_at}}</span>
+                                <div style="margin-left: 70%;">
+                                </div>  
+                            </td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th>Private Files</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in upload %}
+                        <tr> 
+                            <td>
+                                <br>
+                                <a href="/media/{{i.file}}" target="_blank" class="rounded-circle me-4" width="40" height="40">{{i.file}}</a>
+                                <br><h7><b>File Info :</b></h7>
+                                <br><span>Created:{{i.created_at}}</span> 
+                                <br><span>Updated:{{i.updated_at}}</span>
+                                <div style="margin-left: 70%;">
+                                    <a href="{% url 'update' i.id %}"><button type="button" class="btn btn-outline-primary" >Update</button></a>
+                                    <a href="{% url 'delete' i.id %}"><button type="button" class="btn btn-outline-danger">Delete</button></a>
+                                </div>
+                                
+                            </td> 
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
