@@ -18,6 +18,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% if public.count == 0 %}
+                        <tr> 
+                            <td>
+                                
+                                <br><h7><b>No Data Present!</b></h7>
+                                <div style="margin-left: 70%;">
+                                </div>  
+                            </td>
+                            
+                        </tr>
+                        {% else %}
                         {% for i in public %}
                         <tr> 
                             <td>
@@ -32,6 +43,7 @@
                             
                         </tr>
                         {% endfor %}
+                        {% endif %}
                     </tbody>
                     <thead>
                         <tr>
@@ -39,6 +51,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% if upload.count == 0  %}
+                        <tr> 
+                            <td>
+                                <br><h7><b>No Data Present!</b></h7>
+                            </td> 
+                        </tr>
+                        {% else %}
                         {% for i in upload %}
                         <tr> 
                             <td>
@@ -55,6 +74,7 @@
                             </td> 
                         </tr>
                         {% endfor %}
+                        {% endif %}
                     </tbody>
                 </table>
             </div>
