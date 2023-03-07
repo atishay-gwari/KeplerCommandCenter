@@ -170,6 +170,7 @@ def CovertedToDB_list(request):
             ],
         ]
 
+
         # creating point df for kepler
         point_df = df.loc[
             :, ["Circle", "City", "Component", "Polygon"]
@@ -197,20 +198,19 @@ def CovertedToDB_list(request):
                     "filters": [],
                     "layers": [
                         {
-                            "id": "uopdb5p",
+                            "id": "4lrj2t8",
                             "type": "geojson",
                             "config": {
-                                "dataId": "rw1tpqf3",
+                                "dataId": "Data",
                                 "label": "Data",
-                                "color": [21, 174, 180],
-                                "highlightColor": [252, 242, 26, 255],
+                                "color": [18, 147, 154],
                                 "columns": {"geojson": "Polygon"},
                                 "isVisible": True,
                                 "visConfig": {
                                     "opacity": 0.8,
                                     "strokeOpacity": 0.8,
-                                    "thickness": 1,
-                                    "strokeColor": None,
+                                    "thickness": 0.5,
+                                    "strokeColor": [255, 203, 153],
                                     "colorRange": {
                                         "name": "Uber Viz Diverging 1.5",
                                         "type": "diverging",
@@ -262,7 +262,7 @@ def CovertedToDB_list(request):
                             },
                             "visualChannels": {
                                 "colorField": {
-                                    "name": "Voice Affected Users",
+                                    "name": "Voice_Affected_Users",
                                     "type": "integer",
                                 },
                                 "colorScale": "quantile",
@@ -277,13 +277,12 @@ def CovertedToDB_list(request):
                             },
                         },
                         {
-                            "id": "vw34vq",
+                            "id": "zy1dtyk",
                             "type": "point",
                             "config": {
-                                "dataId": "2dk5cs2yk",
+                                "dataId": "Point",
                                 "label": "Point",
-                                "color": [250, 227, 0],
-                                "highlightColor": [252, 242, 26, 255],
+                                "color": [25, 20, 16],
                                 "columns": {
                                     "lat": "lat",
                                     "lng": "lon",
@@ -291,7 +290,7 @@ def CovertedToDB_list(request):
                                 },
                                 "isVisible": True,
                                 "visConfig": {
-                                    "radius": 1,
+                                    "radius": 12.9,
                                     "fixedRadius": False,
                                     "opacity": 0.8,
                                     "outline": False,
@@ -347,81 +346,18 @@ def CovertedToDB_list(request):
                                 "sizeScale": "linear",
                             },
                         },
-                        {
-                            "id": "arf1a5l",
-                            "type": "line",
-                            "config": {
-                                "dataId": "ili74gst",
-                                "label": "Closing_line",
-                                "color": [246, 218, 0],
-                                "highlightColor": [252, 242, 26, 255],
-                                "columns": {
-                                    "lat0": "source_lat",
-                                    "lng0": "source_lon",
-                                    "lat1": "target_lat",
-                                    "lng1": "target_lon",
-                                    "alt0": None,
-                                    "alt1": None,
-                                },
-                                "isVisible": True,
-                                "visConfig": {
-                                    "opacity": 0.81,
-                                    "thickness": "8",
-                                    "colorRange": {
-                                        "name": "Global Warming",
-                                        "type": "sequential",
-                                        "category": "Uber",
-                                        "colors": [
-                                            "#5A1846",
-                                            "#900C3F",
-                                            "#C70039",
-                                            "#E3611C",
-                                            "#F1920E",
-                                            "#FFC300",
-                                        ],
-                                    },
-                                    "sizeRange": [0, 10],
-                                    "targetColor": None,
-                                    "elevationScale": 1,
-                                },
-                                "hidden": False,
-                                "textLabel": [
-                                    {
-                                        "field": None,
-                                        "color": [255, 255, 255],
-                                        "size": 18,
-                                        "offset": [0, 0],
-                                        "anchor": "start",
-                                        "alignment": "center",
-                                    }
-                                ],
-                            },
-                            "visualChannels": {
-                                "colorField": None,
-                                "colorScale": "quantile",
-                                "sizeField": None,
-                                "sizeScale": "linear",
-                            },
-                        },
                     ],
                     "interactionConfig": {
                         "tooltip": {
                             "fieldsToShow": {
-                                "rw1tpqf3": [
-                                    {"name": "0", "format": None},
+                                "Data": [
                                     {"name": "Circle", "format": None},
                                     {"name": "City", "format": None},
                                     {"name": "Component", "format": None},
                                     {"name": "Date", "format": None},
+                                    {"name": "Hour", "format": None},
                                 ],
-                                "2dk5cs2yk": [
-                                    {"name": "0", "format": None},
-                                    {"name": "Component", "format": None},
-                                    {"name": "Circle", "format": None},
-                                    {"name": "City", "format": None},
-                                ],
-                                "ili74gst": [
-                                    {"name": "0", "format": None},
+                                "Point": [
                                     {"name": "Component", "format": None},
                                     {"name": "Circle", "format": None},
                                     {"name": "City", "format": None},
@@ -445,11 +381,11 @@ def CovertedToDB_list(request):
                     "latitude": avglat,
                     "longitude": avglon,
                     "pitch": 0,
-                    "zoom": 13.086759211833355,
+                    "zoom": 6,
                     "isSplit": False,
                 },
                 "mapStyle": {
-                    "styleType": "muted_night",
+                    "styleType": "light",
                     "topLayerGroups": {},
                     "visibleLayerGroups": {
                         "label": True,
@@ -461,21 +397,16 @@ def CovertedToDB_list(request):
                         "3d building": False,
                     },
                     "threeDBuildingColor": [
-                        26.848523094644484,
-                        31.1442867897876,
-                        35.440050484930715,
+                        218.82023004728686,
+                        223.47597962276103,
+                        223.47597962276103,
                     ],
                     "mapStyles": {},
                 },
             },
         }
         point_df.drop(["Polygon", "point"], inplace=True, axis=1)
-        # merge_df=df.iloc[:,3:-3]
-        # point=df.iloc[:,3:6]
-        # position=df.iloc[:,-3:]
-        # point_df = pd.concat([point, position], axis=1, join='inner')
-        # print(merge_df.columns.unique())
-        # print(point_df.columns.unique())
+        
 
         map_dual = KeplerGl(height=700)
         map_dual.save_to_html(
@@ -512,7 +443,6 @@ def CovertedToDB_list(request):
         context = {"venues": venues}
         return render(request, "filter.html", context)
     else:
-        venues = None
         context = {"venues": venues}
         return render(request, "filter.html", context)
 
@@ -549,7 +479,7 @@ def csvconverter(request):
                 reader = csv.reader(f, delimiter=",")
                 # reader=pd.read_csv(f)
                 next(reader)
-                batch_size = 15000
+                batch_size = 20000
                 objs = []
 
                 for fields in reader:

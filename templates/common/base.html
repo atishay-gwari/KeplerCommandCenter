@@ -66,9 +66,8 @@
                     </div>
                 </nav>
                 {% for message in messages %}
-                <div class="alert alert-{{ message.tags}} alert-dismissible fade show" role="alert">
+                <div class="alert alert-{{ message.tags}}" id="messagenoti" role="alert">
                     <strong>Notification: </strong>{{message}}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 {% endfor %}
                 {% block content %}
@@ -86,6 +85,11 @@
     </div>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/theme.js' %}"></script>
+    <script>var message_ele = document.getElementById("messagenoti");
+
+        setTimeout(function(){ 
+           message_ele.style.display = "none"; 
+        }, 3000);</script>
 </body>
 
 </html>
