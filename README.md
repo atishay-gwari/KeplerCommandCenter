@@ -1,5 +1,5 @@
 python manage.py runserver (IP:port_address)
-Stop the server!
+    Stop the server!
 python manage.py migrate --run-syncdb
 
 Create Super User/Admin: python manage.py createsuperuser
